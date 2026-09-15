@@ -10,9 +10,9 @@ type SpaceCardProps = {
 };
 
 const IMAGES: Record<1 | 2 | 3, string> = {
-  1: "/images/space-hall.jpg",
+  1: "/images/hall1.jpg",
   2: "/images/space-lawns.jpg",
-  3: "/images/space-catering.jpg",
+  3: "/images/space-hall.jpg",
 };
 
 /**

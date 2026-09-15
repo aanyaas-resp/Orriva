@@ -7,12 +7,15 @@ import SpaceCard from "@/components/SpaceCard";
 import Testimonial from "@/components/Testimonial";
 import CTASection from "@/components/CTASection";
 import LotusMark from "@/components/LotusMark";
+import AboutPage from "./about/page";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <Marquee />
+      <AboutPage />
+
 
       {/* Story */}
       <section className="bg-ivory-dim py-24">

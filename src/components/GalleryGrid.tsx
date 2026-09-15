@@ -6,25 +6,17 @@ import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 const ITEMS = [
-  { src: "/images/gallery-grand-hall.jpg", title: "The Grand Hall" },
-  { src: "/images/gallery-reception.jpg", title: "Reception Setup" },
-  { src: "/images/gallery-stage.jpg", title: "Stage Décor" },
-  { src: "/images/gallery-lawn.jpg", title: "Lawn Ceremony" },
-  { src: "/images/gallery-live-counter.jpg", title: "Live Counter" },
-  { src: "/images/gallery-evening.jpg", title: "Evening Lights" },
-  { src: "/images/gallery-seating.jpg", title: "Guest Seating" },
-  { src: "/images/gallery-foyer.jpg", title: "Foyer Entrance" },
-  { src: "/images/gallery-dessert.jpg", title: "Dessert Table" },
+  { src: "/images/gallery4.JPG", title: "The Grand Hall" },        // domed banquet hall, festive crowd
+  { src: "/images/Artboard 12.png", title: "Reception Setup" },    // arch entrance with reception kiosk & florals
+  { src: "/images/space-hall.jpg", title: "Stage Décor" },         // stage with floral backdrop + DJ booth
+  { src: "/images/6.png", title: "Lawn Ceremony" },                // open-air courtyard under the sky
+  { src: "/images/gallery2.png", title: "Live Counter" },          // pergola dining with buffet counter
+  { src: "/images/1.png", title: "Evening Lights" },               // dramatic corten-steel arches at night
+  { src: "/images/hall1.jpg", title: "Guest Seating" },            // courtyard lounge seating
+  { src: "/images/glasshouse.JPG", title: "Foyer Entrance" },      // illuminated arched entry corridor
+  { src: "/images/space-lawns.jpg", title: "Dessert Table" },      // round tables with decorative centerpiece
 ];
 
-/**
- * The gallery's signature moment: tiles rise into place with a slight
- * 3D unfurl as the grid scrolls into view, then respond to the cursor
- * with a gentle depth-of-field tilt. Clicking opens a full-bleed
- * lightbox. Framing here is intentionally editorial — offset columns,
- * not a uniform card grid — per the brand's asymmetric-but-centered
- * layout language.
- */
 export default function GalleryGrid() {
   const gridRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<number | null>(null);

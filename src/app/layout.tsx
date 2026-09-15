@@ -6,6 +6,10 @@ import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import LoadingVeil from "@/components/LoadingVeil";
 
+// The animation-heavy pages exceed the heap of constrained build workers while
+// prerendering. Render them on demand instead, keeping builds reliable.
+export const dynamic = "force-dynamic";
+
 const cinzel = Cinzel({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
