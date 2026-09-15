@@ -1,69 +1,95 @@
-import Image from "next/image";
+import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
+import SectionHeading from "@/components/SectionHeading";
+import Reveal from "@/components/Reveal";
+import FeatureBlock from "@/components/FeatureBlock";
+import SpaceCard from "@/components/SpaceCard";
+import Testimonial from "@/components/Testimonial";
+import CTASection from "@/components/CTASection";
+import LotusMark from "@/components/LotusMark";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <>
+      <Hero />
+      <Marquee />
+
+      {/* Story */}
+      <section className="bg-ivory-dim py-24">
+        <Reveal>
+          <SectionHeading
+            kicker="The Story Behind Orriva"
+            title="Every great story has a beginning"
+            lede="The &lsquo;O&rsquo; is a full-circle moment; &lsquo;Riva&rsquo; is the gentle flow of time. Together they express a journey that begins with intention and grows into something lasting."
+          />
+        </Reveal>
+
+        <Reveal stagger className="container-xl mt-14 grid grid-cols-3 gap-8 sm:grid-cols-3">
+          <Stat value="1,400+" label="Celebrations Hosted" />
+          <Stat value="100%" label="Pure Vegetarian" />
+          <Stat value="4.5★" label="Guest Rated" />
+        </Reveal>
+      </section>
+
+      {/* Offerings */}
+      <section className="bg-ivory py-24">
+        <Reveal>
+          <SectionHeading kicker="What We Offer" title="Spaces built for every occasion" />
+        </Reveal>
+        <Reveal stagger className="container-xl mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
+          <SpaceCard tone={1} title="Grand Banquet Hall" desc="Air-conditioned interiors with ornate finishes for weddings and receptions." />
+          <SpaceCard tone={2} title="Manicured Lawns" desc="Open-air celebrations under the sky, dressed for the season." />
+          <SpaceCard tone={3} title="Vegetarian Catering" desc="Curated pure-vegetarian menus crafted for every palate." />
+        </Reveal>
+      </section>
+
+      {/* Why Orriva */}
+      <section className="bg-ink py-24">
+        <Reveal>
+          <SectionHeading dark kicker="Why Orriva" title="Details, nurtured with thought" />
+        </Reveal>
+        <Reveal
+          stagger
+          className="container-xl mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4"
+        >
+          <FeatureBlock dark index="01" title="Pure Vegetarian, Always" desc="Every menu at Orriva is exclusively vegetarian — refined, seasonal and generous." />
+          <FeatureBlock dark index="02" title="Flexible Spaces" desc="From an ornate hall to open lawns, scale your celebration your way." />
+          <FeatureBlock dark index="03" title="Dedicated Support" desc="A single point of contact guides décor, catering and logistics." />
+          <FeatureBlock dark index="04" title="Central Location" desc="Easy to reach for guests across Ghaziabad and the wider NCR." />
+        </Reveal>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-gradient-to-b from-ink to-[#151310] py-24">
+        <Reveal>
+          <SectionHeading dark kicker="In Their Words" title="Celebrated at Orriva" />
+        </Reveal>
+        <Reveal stagger className="container-xl mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
+          <Testimonial quote="Great ambience with great food and service — the staff is also good." source="Google Review" />
+          <Testimonial quote="Great place for a wedding or other events — good location with delicious food." source="Google Review" />
+          <Testimonial quote="An excellent destination for our dream wedding — elegant spaces and refined ambience." source="Guest Feedback" />
+        </Reveal>
+      </section>
+
+      <CTASection
+        title="Let's begin your story at Orriva"
+        lede="Share your date and guest count — our team will get back with availability and a tailored proposal."
+        buttonLabel="Enquire Now"
+      />
+    </>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="flex flex-col items-center text-center">
+      <span className="flex items-center gap-2 font-display text-3xl text-bronze">
+        <LotusMark className="h-5 w-5" />
+        {value}
+      </span>
+      <span className="mt-2 text-[0.76rem] uppercase tracking-[0.08em] text-[#8a8171]">
+        {label}
+      </span>
     </div>
   );
 }

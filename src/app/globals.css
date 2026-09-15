@@ -1,26 +1,217 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ink: #0a0a0a;
+  --color-ivory: #f7f2e9;
+  --color-ivory-dim: #ede4d3;
+  --color-gold: #a07b4e;
+  --color-gold-pale: #cba468;
+  --color-line-light: rgba(28, 26, 23, 0.14);
+  --color-line-dark: rgba(203, 164, 104, 0.28);
+  --font-display: var(--font-cinzel), serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --header-h: 84px;
+
+  /* ====== ORRIVA BRAND PALETTE ====== */
+  /* Light theme (default — cream/ivory base) */
+  --color-bg: #f7f2e9;
+  --color-bg-alt: #ede4d3;
+  --color-text: #1c1a17;
+  --color-text-muted: #7a5c38;
+
+  /* Dark theme (sections, footer, hero overlays) */
+  --color-bg-dark: #0a0a0a;
+  --color-bg-dark-alt: #1a1a1a;
+  --color-text-dark: #f5f1e8;
+  --color-text-dark-muted: #cba468;
+
+  /* Gold accent system */
+  --color-gold: #a07b4e;
+  --color-gold-light: #cba468;
+  --color-gold-gradient: linear-gradient(135deg, #a07b4e, #cba468);
+
+  /* Borders / rules */
+  --color-border-light: rgba(28, 26, 23, 0.14);
+  --color-border-dark: rgba(203, 164, 104, 0.28);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-cinzel), serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container-xl {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+/* ====== KICKER LABELS ====== */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.kicker::before,
+.kicker::after {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.kicker-dark {
+  color: var(--color-gold-light);
+}
+
+/* ====== RULES / DIVIDERS ====== */
+.rule {
+  height: 1px;
+  width: 100%;
+  background: var(--color-border-light);
+  border: none;
+}
+
+.rule-dark {
+  background: var(--color-border-dark);
+}
+
+/* ====== REVEAL ANIMATION ====== */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.word-split span {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ====== MARQUEE ====== */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+/* ====== LOADING VEIL ====== */
+.load-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--color-bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* ====== 3D TILT CARDS ====== */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ====== CURSOR-FOLLOW GOLD GLOW ====== */
+.glow-surface {
+  position: relative;
+  isolation: isolate;
+}
+.glow-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(203, 164, 104, 0.16), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.glow-surface:hover::before {
+  opacity: 1;
+}
+
+/* ====== GOLD ACCENT UTILITIES ====== */
+.text-gold {
+  color: var(--color-gold);
+}
+.text-gold-light {
+  color: var(--color-gold-light);
+}
+.bg-gold-gradient {
+  background: var(--color-gold-gradient);
+}
+.border-gold {
+  border-color: var(--color-gold);
 }
