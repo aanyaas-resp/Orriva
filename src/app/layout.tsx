@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import LoadingVeil from "@/components/LoadingVeil";
+import FloatingContacts from "@/components/FloatingContacts";
 
 // The animation-heavy pages exceed the heap of constrained build workers while
 // prerendering. Render them on demand instead, keeping builds reliable.
@@ -66,6 +67,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <FloatingContacts />
       </body>
     </html>
   );

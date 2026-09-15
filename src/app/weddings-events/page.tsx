@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
-import FeatureBlock from "@/components/FeatureBlock";
 import SpaceCard from "@/components/SpaceCard";
 import CTASection from "@/components/CTASection";
 
@@ -20,6 +19,25 @@ const OCCASIONS = [
   "Corporate Events & Conferences",
   "Birthday & Anniversary Celebrations",
   "Social & Community Gatherings",
+];
+
+const INCLUSIONS = [
+  {
+    title: "Dedicated Event Manager",
+    desc: "A single point of contact to coordinate décor, catering, seating and timelines.",
+  },
+  {
+    title: "In-House Vegetarian Catering",
+    desc: "Customisable menus across cuisines, all prepared pure vegetarian.",
+  },
+  {
+    title: "Décor & Vendor Coordination",
+    desc: "Work with our preferred décor and photography partners, or bring your own.",
+  },
+  {
+    title: "Ample Parking & Guest Comfort",
+    desc: "On-site parking and well-appointed guest amenities throughout the venue.",
+  },
 ];
 
 export default function WeddingsEventsPage() {
@@ -65,23 +83,30 @@ export default function WeddingsEventsPage() {
           {OCCASIONS.map((occasion) => (
             <span
               key={occasion}
-              className="border border-line-light px-5 py-2.5 text-[0.85rem] text-[#5a5346]"
+              className="flex items-center gap-2.5 border border-line-light px-5 py-2.5 text-[0.85rem] text-[#5a5346]"
             >
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
               {occasion}
             </span>
           ))}
         </Reveal>
       </section>
 
+      {/* Inclusions — four parallel benefits, not a sequence, so no numbering */}
       <section className="bg-ink py-24">
         <Reveal>
           <SectionHeading dark kicker="Included With Every Booking" title="Support from enquiry to send-off" />
         </Reveal>
-        <Reveal stagger className="container-xl mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-          <FeatureBlock dark index="01" title="Dedicated Event Manager" desc="A single point of contact to coordinate décor, catering, seating and timelines." />
-          <FeatureBlock dark index="02" title="In-House Vegetarian Catering" desc="Customisable menus across cuisines, all prepared pure vegetarian." />
-          <FeatureBlock dark index="03" title="Décor & Vendor Coordination" desc="Work with our preferred décor and photography partners, or bring your own." />
-          <FeatureBlock dark index="04" title="Ample Parking & Guest Comfort" desc="On-site parking and well-appointed guest amenities throughout the venue." />
+        <Reveal
+          stagger
+          className="container-xl mt-16 grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-2 sm:divide-x md:grid-cols-4 md:divide-y-0"
+        >
+          {INCLUSIONS.map((item) => (
+            <div key={item.title} className="px-6 py-8 text-center first:pt-0 sm:py-8 md:py-0">
+              <h3 className="font-display text-lg text-gold-pale">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/60">{item.desc}</p>
+            </div>
+          ))}
         </Reveal>
       </section>
 
