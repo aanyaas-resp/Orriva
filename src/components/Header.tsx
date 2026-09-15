@@ -36,10 +36,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
   return (
     <header
       className={clsx(
@@ -123,6 +119,7 @@ export default function Header() {
               >
                 <Link
                   href={l.href}
+                  onClick={() => setOpen(false)}
                   className={clsx(
                     "font-display text-xl tracking-wide transition-colors",
                     pathname === l.href

@@ -15,7 +15,7 @@ export default function Logo({ className, priority = false }: LogoProps) {
   return (
     
       <Image
-        src="/images/logo.jpg"
+        src="/images/Logo.jpg"
         height={60}
         width={60}
         alt="Orriva by Lotus"
