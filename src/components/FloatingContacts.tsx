@@ -4,12 +4,12 @@ import { useState } from "react";
 
 const WHATSAPP_NUMBER = "917428217500";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hello Orriva by Lotus, I'd like to enquire about hosting an event with you."
+  "Hello Orriva, I'd like to enquire about hosting an event with you."
 );
-const INSTAGRAM_URL = "https://www.instagram.com/orrivabylotus/";
+const CALL_NUMBER = "+917428217500";
 
 export default function FloatingContacts() {
-  const [hovered, setHovered] = useState<"whatsapp" | "instagram" | null>(null);
+  const [hovered, setHovered] = useState<"whatsapp" | "call" | null>(null);
 
   return (
     <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end gap-4 sm:bottom-8 sm:right-8">
@@ -35,25 +35,23 @@ export default function FloatingContacts() {
         </span>
       </a>
 
-      {/* Instagram */}
+      {/* Call */}
       <a
-        href={INSTAGRAM_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Follow us on Instagram"
-        onMouseEnter={() => setHovered("instagram")}
+        href={`tel:${CALL_NUMBER}`}
+        aria-label="Call us"
+        onMouseEnter={() => setHovered("call")}
         onMouseLeave={() => setHovered(null)}
         className="group relative flex items-center"
       >
         <span
           className={`absolute right-full mr-3 whitespace-nowrap rounded-full border border-gold/40 bg-ink px-3.5 py-1.5 text-[0.72rem] uppercase tracking-[0.08em] text-gold-pale shadow-lg transition-all duration-200 ${
-            hovered === "instagram" ? "translate-x-0 opacity-100" : "pointer-events-none translate-x-2 opacity-0"
+            hovered === "call" ? "translate-x-0 opacity-100" : "pointer-events-none translate-x-2 opacity-0"
           }`}
         >
-          Follow on Instagram
+          Call Us
         </span>
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white shadow-[0_4px_18px_rgba(0,0,0,0.35)] ring-2 ring-gold/0 transition-all duration-300 group-hover:scale-105 group-hover:ring-gold/70">
-          <InstagramIcon className="h-6 w-6" />
+        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-gold to-gold-pale text-ink shadow-[0_4px_18px_rgba(0,0,0,0.35)] ring-2 ring-gold/0 transition-all duration-300 group-hover:scale-105 group-hover:ring-gold/70">
+          <CallIcon className="h-6 w-6" />
         </span>
       </a>
     </div>
@@ -69,12 +67,10 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-function InstagramIcon({ className }: { className?: string }) {
+function CallIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className} aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
     </svg>
   );
 }
