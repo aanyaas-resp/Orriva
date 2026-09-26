@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 
-const WHATSAPP_NUMBER = "917428217500";
+const WHATSAPP_NUMBER = "919266689079";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hello Orriva, I'd like to enquire about hosting an event with you."
 );
-const CALL_NUMBER = "+917428217500";
+const CALL_NUMBER = "+919266689079";
 
 export default function FloatingContacts() {
   const [hovered, setHovered] = useState<"whatsapp" | "call" | null>(null);

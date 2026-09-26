@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 
-const WHATSAPP_NUMBER = "917428217500"; // country code + number, no + or spaces
+const WHATSAPP_NUMBER = "919266689079"; // country code + number, no + or spaces
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);

@@ -52,8 +52,8 @@ export default function Footer() {
                 Plot no. 915, near Tyagi Chowk, Raj Nagar Extension, Ghaziabad,
                 Uttar Pradesh 201003
               </p>
-              <a href="tel:+917428217500" className="hover:text-gold-pale">
-                +91 74282 17500
+              <a href="tel:+919266689079" className="hover:text-gold-pale">
+                +91 92666 89079
               </a>
               <a href="mailto:orriva.lotus@gmail.com" className="hover:text-gold-pale">
                 orriva.lotus@gmail.com
