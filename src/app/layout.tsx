@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Cinzel, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -62,6 +63,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cinzel.variable} ${poppins.variable}`}>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18463511610"
+          strategy="beforeInteractive"
+        />
+        <Script id="google-tag-init" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){window.dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18463511610');
+gtag('config', 'AW-18463511610/-fVgCK7qgY4dELqoi-RE', {
+  'phone_conversion_number': '+919266689079'
+});`}
+        </Script>
         <LoadingVeil />
         <SmoothScroll />
         <Header />
